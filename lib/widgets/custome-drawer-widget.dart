@@ -1,7 +1,11 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:ecomm/screens/user-panel/all-order-screen.dart';
+import 'package:ecomm/screens/user-panel/main-screen.dart';
 import 'package:ecomm/utils/app-constent.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -25,6 +29,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
             bottomRight: Radius.circular(20),
           ),
         ),
+        // ignore: sort_child_properties_last
         child: Wrap(
           runSpacing: 10,
           children: [
@@ -54,6 +59,11 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 title: Text('Home',style: TextStyle(color:AppConstant.appTextColor),),
                 leading: Icon(Icons.home,color:AppConstant.appTextColor,),
                 trailing: Icon(Icons.arrow_forward,color:AppConstant.appTextColor,),
+                onTap: () {
+                  Get.back();
+                  Get.offAll(MainScreen());
+                  Fluttertoast.showToast(msg: 'Already Home Page');
+                },
               ),
             ),
             Padding(
@@ -63,6 +73,9 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 title: Text('Product',style: TextStyle(color:AppConstant.appTextColor),),
                 leading: Icon(Icons.production_quantity_limits,color:AppConstant.appTextColor,),
                 trailing: Icon(Icons.arrow_forward,color:AppConstant.appTextColor,),
+                onTap: () {
+                  Fluttertoast.showToast(msg: 'Under Process');
+                },
               ),
             ),
             Padding(
@@ -85,6 +98,9 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 title: Text('Contact',style: TextStyle(color:AppConstant.appTextColor),),
                 leading: Icon(Icons.help,color:AppConstant.appTextColor,),
                 trailing: Icon(Icons.arrow_forward,color:AppConstant.appTextColor,),
+                onTap: () {
+                  Fluttertoast.showToast(msg: 'Under Process');
+                },
               ),
             ),
             Padding(
